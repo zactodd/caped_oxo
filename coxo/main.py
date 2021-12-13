@@ -8,5 +8,5 @@ def is_win(board):
            board[0][2][1] == board[1][1][1] == board[2][0][1] is not None
 
 
-def next_moves(board, turn):
-    return ((i, j) for i, r in enumerate(board) for j, (v, p) in enumerate(r) if turn > v)
+def next_moves(player, board, pieces):
+    return ((i, j) for p in pieces for i, r in enumerate(board) for j, (v, c) in enumerate(r) if player != c and p > v)
